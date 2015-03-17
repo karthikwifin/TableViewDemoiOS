@@ -59,12 +59,11 @@ static NSString *CellIdentifier = @"FactsCell";
     // Request Asynchronous call to download JSON file
     [JsonFileDownload downloadJsonFeed: [NSURL URLWithString:jsonFeedUrl] completionBlock:^(BOOL succeeded, NSDictionary *dictResponse) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            
            [self.navigationItem setTitle: [ dictResponse objectForKey:@"subjectTitle"]];
             self.listValues = [ dictResponse objectForKey:@"feedArray"];
             [ self.tblView reloadData]; // Reload table once refresh finished
-            });
-        }];
+        });
+    }];
 }
 
 //---------------------------------------------

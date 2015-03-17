@@ -35,6 +35,7 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle: UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    
     if (self) {
         _lblTitle = [[UILabel alloc]init];
         _lblDescription = [[UILabel alloc]init];
@@ -42,29 +43,25 @@
         
         [self.lblTitle setNumberOfLines:0];
         [self.lblTitle setFont:[UIFont fontWithName: @"HelveticaNeue-Bold" size:20.0f]];
-        
         [self.lblTitle setTextColor: [ UIColor whiteColor]];
-        
-        
         [self.lblDescription setNumberOfLines:0];
         [self.lblDescription setFont:[UIFont fontWithName: @"HelveticaNeue-Bold" size:14.0f]];
         [self.lblDescription setLineBreakMode:NSLineBreakByWordWrapping];
         [self.lblDescription setTextColor:[UIColor cyanColor]];
         
-        [ self.imgFacts setTag: 1];
-        [ self.imgFacts setContentMode: UIViewContentModeScaleAspectFill];
-        [ self.imgFacts setBackgroundColor: [ UIColor clearColor]];
+        [self.imgFacts setTag: 1];
+        [self.imgFacts setContentMode: UIViewContentModeScaleAspectFill];
+        [self.imgFacts setBackgroundColor: [ UIColor clearColor]];
         [self setBackgroundColor:[UIColor clearColor]];
         
         [self.contentView addSubview:self.lblTitle];
         [self.contentView addSubview:self.lblDescription];
         [self.contentView addSubview:self.imgFacts];
-        
-        
     }
-    [self applyAutoLayoutConstraintsToTableViewObjects];
-    return self;
     
+    [self applyAutoLayoutConstraintsToTableViewObjects];
+    
+    return self;
 }
 
 -(void)applyAutoLayoutConstraintsToTableViewObjects
@@ -80,11 +77,10 @@
     [topConstraintToTitle setPriority:UILayoutPriorityRequired]; // Setting maximum priority for the title
     [self.contentView addConstraint:topConstraintToTitle];
     
-    
-    // Adding contraints to Leading, Trailing and Top for description
+    // Adding contraints to Leading, Bottom for description
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
-    NSLayoutConstraint *bottomConstraintForDescLabel = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeBottom multiplier:1 constant:20];
-    [bottomConstraintForDescLabel setPriority:900];
+    NSLayoutConstraint *bottomConstraintForDescLabel = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    [bottomConstraintForDescLabel setPriority: UILayoutPriorityRequired];
     [self.contentView addConstraint:bottomConstraintForDescLabel];
     
     // Contraint between title and description label
@@ -92,9 +88,7 @@
     [topConstraintToDescription setPriority:UILayoutPriorityRequired];
     [self.contentView addConstraint:topConstraintToDescription];
     
-    
     // Adding Constraints to image for CentreY, Leading and Bottom positions
-    
     NSLayoutConstraint *centreSpacingConstraint=[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     [centreSpacingConstraint setPriority:900]; //Lower Priority
     [self.contentView addConstraint:centreSpacingConstraint];
@@ -143,7 +137,6 @@
     
     // Set preferred width if autolayout designed programmatically
     [self.lblDescription setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-CGRectGetWidth(self.imgFacts.bounds)-adjustSpacing];
-    [self.lblTitle setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-adjustSpacing];
     
     if (!_gradientView)
         self.gradientView = [[GradientView alloc] initWithFrame:self.contentView.bounds];

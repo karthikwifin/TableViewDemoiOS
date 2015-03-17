@@ -16,7 +16,7 @@ static NSString * const verticalVisual = @"V:[_imgFacts(70)]";
 static NSString * const kTitle = @"title";
 static NSString * const kDescription = @"description";
 static NSString * const kImage = @"imageHref";
-static int  const adjustSpacing = 10;
+static int  const adjustSpacing = 30;
 static int  const kImageSize = 90;
 
 #endif

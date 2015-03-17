@@ -52,6 +52,7 @@
         [self.lblDescription setTextColor:[UIColor cyanColor]];
         
         [ self.imgFacts setTag: 1];
+        [ self.imgFacts setContentMode: UIViewContentModeScaleAspectFill];
         [ self.imgFacts setBackgroundColor: [ UIColor clearColor]];
         [self setBackgroundColor:[UIColor clearColor]];
         
@@ -101,7 +102,7 @@
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblDescription attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.imgFacts attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
     
-    NSLayoutConstraint *constraintForImageViewBottom=[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.imgFacts attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    NSLayoutConstraint *constraintForImageViewBottom=[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.imgFacts attribute:NSLayoutAttributeBottom multiplier:1 constant:30];
     [constraintForImageViewBottom setPriority:900]; //Lower Priority
     [self.contentView addConstraint:constraintForImageViewBottom];
     

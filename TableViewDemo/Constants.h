@@ -19,8 +19,7 @@ static NSString * const kTitle = @"title";
 static NSString * const kDescription = @"description";
 static NSString * const kImage = @"imageHref";
 
-static int  const adjust480Spacing = 10;
-static int  const adjustSpacing = 110;
+static int  const adjustSpacing = 10;
 static int  const kImageSize = 90;
 
 #endif

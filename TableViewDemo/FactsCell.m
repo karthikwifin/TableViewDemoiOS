@@ -145,17 +145,9 @@
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
     
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
-        // Set preferred width if autolayout designed programmatically
-        [self.lblDescription setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-CGRectGetWidth(self.imgFacts.bounds)-adjust480Spacing];
-        [self.lblTitle setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-adjust480Spacing];
-    }
-    else{
-        // Set preferred width if autolayout designed programmatically
-        [self.lblDescription setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-CGRectGetWidth(self.imgFacts.bounds)-adjustSpacing];
-        [self.lblTitle setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-adjustSpacing];
-    }
+    // Set preferred width if autolayout designed programmatically
+    [self.lblDescription setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-CGRectGetWidth(self.imgFacts.bounds)-adjustSpacing];
+    [self.lblTitle setPreferredMaxLayoutWidth:CGRectGetWidth(self.bounds)-adjustSpacing];
     
     if (!_gradientView)
         self.gradientView = [[GradientView alloc] initWithFrame:self.contentView.bounds];

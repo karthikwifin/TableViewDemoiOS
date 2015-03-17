@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2567BF7C1AB890C900D9619C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2567BF7B1AB890C900D9619C /* Default-568h@2x.png */; };
 		2574EBAE1AB5628D001A48A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574EBAD1AB5628D001A48A8 /* main.m */; };
 		2574EBB11AB5628D001A48A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574EBB01AB5628D001A48A8 /* AppDelegate.m */; };
 		2574EBB41AB5628D001A48A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574EBB31AB5628D001A48A8 /* ViewController.m */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2567BF7B1AB890C900D9619C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2574EBA81AB5628D001A48A8 /* TableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2574EBAC1AB5628D001A48A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2574EBAD1AB5628D001A48A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		2574EBDD1AB6904A001A48A8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2567BF7B1AB890C900D9619C /* Default-568h@2x.png */,
 				4C0DF2271AB85CE5000D9A01 /* ErrorImage.jpeg */,
 				2574EBDE1AB69059001A48A8 /* imagenotfound_big.png */,
 			);
@@ -301,6 +304,7 @@
 				2574EBDF1AB69059001A48A8 /* imagenotfound_big.png in Resources */,
 				2574EBBC1AB5628D001A48A8 /* LaunchScreen.xib in Resources */,
 				2574EBB91AB5628D001A48A8 /* Images.xcassets in Resources */,
+				2567BF7C1AB890C900D9619C /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

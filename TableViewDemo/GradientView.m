@@ -11,6 +11,7 @@
 @implementation GradientView
 
 + (Class)layerClass {
+    
     return [CAGradientLayer class];
 }
 

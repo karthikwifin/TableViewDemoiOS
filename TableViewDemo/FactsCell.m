@@ -16,7 +16,6 @@
 
 @property(nonatomic,retain) UILabel *lblTitle;
 @property (nonatomic, strong) GradientView *gradientView;
-@property (nonatomic, assign) BOOL didSetupConstraints;
 @property(nonatomic,retain) FeedData *feed;
 
 -(void)applyAutoLayoutConstraintsToTableViewObjects;
@@ -69,55 +68,51 @@
 
 -(void)applyAutoLayoutConstraintsToTableViewObjects
 {
-    //if (!self.didSetupConstraints) {
-        [self.lblTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self.lblDescription setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self.imgFacts setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        // Adding contraints to Leading, Trailing and Top for title
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:10]];
-        NSLayoutConstraint *topConstraintToTitle =[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:20];
-        [topConstraintToTitle setPriority:UILayoutPriorityRequired]; // Setting maximum priority for the title
-        [self.contentView addConstraint:topConstraintToTitle];
-        
-        
-        // Adding contraints to Leading, Trailing and Top for description
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
-        NSLayoutConstraint *bottomConstraintForDescLabel = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeBottom multiplier:1 constant:20];
-        [bottomConstraintForDescLabel setPriority:900];
-        [self.contentView addConstraint:bottomConstraintForDescLabel];
-        
-        // Contraint between title and description label
-        NSLayoutConstraint *topConstraintToDescription=[NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [topConstraintToDescription setPriority:UILayoutPriorityRequired];
-        [self.contentView addConstraint:topConstraintToDescription];
-        
-        
-        // Adding Constraints to image for CentreY, Leading and Bottom positions
-        
-        NSLayoutConstraint *centreSpacingConstraint=[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-        [centreSpacingConstraint setPriority:900]; //Lower Priority
-        [self.contentView addConstraint:centreSpacingConstraint];
-        
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblDescription attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
-        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.imgFacts attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
-        
-        NSLayoutConstraint *constraintForImageViewBottom=[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.imgFacts attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [constraintForImageViewBottom setPriority:900]; //Lower Priority
-        [self.contentView addConstraint:constraintForImageViewBottom];
-        
-        NSLayoutConstraint *topSpacingCOnstraintImgView=[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-        [topSpacingCOnstraintImgView setPriority:900]; //Lower Priority
-        [self.contentView addConstraint:topSpacingCOnstraintImgView];
-        
-        // Setting the Height and Width for the ImageView.
-        NSDictionary *dictionary=NSDictionaryOfVariableBindings(_imgFacts,_lblTitle);
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalVisual options:0 metrics:nil views:dictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalVisual options:0 metrics:nil views:dictionary]];
-    //}
+    [self.lblTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.lblDescription setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.imgFacts setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    self.didSetupConstraints = YES;
+    // Adding contraints to Leading, Trailing and Top for title
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1 constant:10]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1 constant:10]];
+    NSLayoutConstraint *topConstraintToTitle =[NSLayoutConstraint constraintWithItem:self.lblTitle attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1 constant:20];
+    [topConstraintToTitle setPriority:UILayoutPriorityRequired]; // Setting maximum priority for the title
+    [self.contentView addConstraint:topConstraintToTitle];
+    
+    
+    // Adding contraints to Leading, Trailing and Top for description
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+    NSLayoutConstraint *bottomConstraintForDescLabel = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeBottom multiplier:1 constant:20];
+    [bottomConstraintForDescLabel setPriority:900];
+    [self.contentView addConstraint:bottomConstraintForDescLabel];
+    
+    // Contraint between title and description label
+    NSLayoutConstraint *topConstraintToDescription=[NSLayoutConstraint constraintWithItem:self.lblDescription attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.lblTitle attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    [topConstraintToDescription setPriority:UILayoutPriorityRequired];
+    [self.contentView addConstraint:topConstraintToDescription];
+    
+    
+    // Adding Constraints to image for CentreY, Leading and Bottom positions
+    
+    NSLayoutConstraint *centreSpacingConstraint=[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+    [centreSpacingConstraint setPriority:900]; //Lower Priority
+    [self.contentView addConstraint:centreSpacingConstraint];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.lblDescription attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.imgFacts attribute:NSLayoutAttributeTrailing multiplier:1 constant:5]];
+    
+    NSLayoutConstraint *constraintForImageViewBottom=[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.imgFacts attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    [constraintForImageViewBottom setPriority:900]; //Lower Priority
+    [self.contentView addConstraint:constraintForImageViewBottom];
+    
+    NSLayoutConstraint *topSpacingCOnstraintImgView=[NSLayoutConstraint constraintWithItem:self.imgFacts attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.lblDescription attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    [topSpacingCOnstraintImgView setPriority:900]; //Lower Priority
+    [self.contentView addConstraint:topSpacingCOnstraintImgView];
+    
+    // Setting the Height and Width for the ImageView.
+    NSDictionary *dictionary=NSDictionaryOfVariableBindings(_imgFacts,_lblTitle);
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalVisual options:0 metrics:nil views:dictionary]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:verticalVisual options:0 metrics:nil views:dictionary]];
 }
 
 - (void)prepareForReuse

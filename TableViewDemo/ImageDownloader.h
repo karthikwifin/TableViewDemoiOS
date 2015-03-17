@@ -10,8 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageDownloader : NSObject
-{
-}
+
 + (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, NSData *data))completionBlock;
 
 @end

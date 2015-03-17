@@ -42,16 +42,15 @@
                     UIGraphicsEndImageContext();
                     completionBlock(YES,reducedData); //Block return reduced image size
                 }
-                else
-                {
+                else{
                     completionBlock(YES, data); //Block return with original image size
                 }
-                
             }
             else{
                 completionBlock(YES, dataValue); //Block return with local image
             }
-        } else {
+        }
+        else {
             completionBlock(YES, errorData); //Block return with local image
         }
     }];

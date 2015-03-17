@@ -43,12 +43,12 @@
         
         NSMutableArray *feedArray = [NSMutableArray array];
         for(NSDictionary *dictValue in [jsonFeed objectForKey:@"rows"]){
-            //Check Null values
-            if(!([dictValue objectForKey:@"title"]==(id)[NSNull null] && [dictValue objectForKey:@"description"]==(id)[NSNull null]&& [dictValue objectForKey:@"imageHref"]==(id)[NSNull null])){
+            
+            //Do not add record to array if all attribute return null values
+            if(!([dictValue objectForKey:kTitle]==(id)[NSNull null] && [dictValue objectForKey:kDescription]==(id)[NSNull null]&& [dictValue objectForKey:kImage]==(id)[NSNull null])){
                 
                 FeedData *feedRecord = [[FeedData alloc] init];
                 if([feedRecord checkNullValues:dictValue]){
-                    
                     [feedArray addObject:feedRecord];
                 }
             }
@@ -58,7 +58,7 @@
         return jsonDict;
     }
     else{
-        NSLog(@"parse error\n");
+        NSLog(@"Parse Error\n");
     }
     
     return nil;

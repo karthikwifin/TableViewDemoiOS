@@ -10,6 +10,7 @@
 #import "Constants.h"
 
 @implementation FeedData
+
 @synthesize factTitle,factDescription,factImage;
 
 //Check null value string
@@ -43,7 +44,6 @@
     else{
         self.factImage=kEmpty;
     }
-    
     return YES;
 }
 

@@ -12,8 +12,6 @@
 #import "JsonFileDownload.h"
 #import "ImageDownloader.h"
 
-#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
-
 static NSString *CellIdentifier = @"FactsCell";
 
 @interface ViewController ()
@@ -51,12 +49,10 @@ static NSString *CellIdentifier = @"FactsCell";
                                @"V:|[localTable]|" options:0 metrics:nil views:views]];
     
     localTable = nil;
-    
     [self.tblView registerClass:[FactsCell class] forCellReuseIdentifier:CellIdentifier];
-    //self.tblView.estimatedRowHeight = 100.0;
     
     UIRefreshControl *control=[[UIRefreshControl alloc] init]; //refresh control instance
-    self.refreshControl=control;
+    self.refreshControl = control;
     [self.refreshControl addTarget:self action:@selector(reloadTable) forControlEvents:UIControlEventValueChanged];
     [tableViewController setRefreshControl: self.refreshControl];
     
@@ -65,8 +61,6 @@ static NSString *CellIdentifier = @"FactsCell";
         dispatch_async(dispatch_get_main_queue(), ^{
             
            [self.navigationItem setTitle: [ dictResponse objectForKey:@"subjectTitle"]];
-            if([self.refreshControl isRefreshing])
-            [self.refreshControl endRefreshing]; // End Refreshing
             self.listValues = [ dictResponse objectForKey:@"feedArray"];
             [ self.tblView reloadData]; // Reload table once refresh finished
             });
@@ -113,13 +107,12 @@ static NSString *CellIdentifier = @"FactsCell";
 }
 
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     FactsCell *cell = [ self createTableCellWithIndexPath: indexPath];
     return cell;
     
 }
-
 
 //---------------------------------------------
 #pragma mark -
@@ -192,8 +185,8 @@ static NSString *CellIdentifier = @"FactsCell";
 - (void) reloadTable
 {
     [ self.imageCache removeAllObjects];
-    
     [self.refreshControl beginRefreshing];
+    
     [JsonFileDownload downloadJsonFeed: [NSURL URLWithString:jsonFeedUrl] completionBlock:^(BOOL succeeded, NSDictionary *dictResponse) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (dictResponse) {
@@ -228,6 +221,7 @@ static NSString *CellIdentifier = @"FactsCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [self.imageCache removeAllObjects];
 }
 
 @end

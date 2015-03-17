@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FeedData : NSObject
-{
-    
-}
 
 @property(nonatomic,retain) NSString *factTitle;
 @property(nonatomic,retain) NSString *factDescription;

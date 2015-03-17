@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface JsonFileDownload : NSObject
-{
-    
-}
 
 +(void)downloadJsonFeed:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, NSDictionary *dictResponse))completionBlock;
 

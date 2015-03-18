@@ -2,7 +2,7 @@
 //  ConstantHandler.h
 //  TableViewDemo
 //
-//  Created by WAGODC_Mac2 on 18/03/15.
+//  Created by Karthik Jaganathan on 18/03/15.
 //  Copyright (c) 2015 Cognizant Technology Solutions Pvt Ltd. All rights reserved.
 //
 

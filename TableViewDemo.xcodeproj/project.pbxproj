@@ -54,7 +54,6 @@
 		2574EBDA1AB68CFD001A48A8 /* JsonFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFileDownload.h; sourceTree = "<group>"; };
 		2574EBDB1AB68CFD001A48A8 /* JsonFileDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFileDownload.m; sourceTree = "<group>"; };
 		2574EBDE1AB69059001A48A8 /* imagenotfound_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagenotfound_big.png; sourceTree = "<group>"; };
-		2574EBE11AB690BD001A48A8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2574EBE31AB69C61001A48A8 /* FactsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactsCell.h; sourceTree = "<group>"; };
 		2574EBE41AB69C61001A48A8 /* FactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactsCell.m; sourceTree = "<group>"; };
 		2574EBE61AB72C32001A48A8 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
@@ -192,7 +191,6 @@
 		2574EBE01AB690AA001A48A8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				2574EBE11AB690BD001A48A8 /* Constants.h */,
 				4C0DF2291AB9815F000D9A01 /* ConstantHandler.h */,
 				4C0DF22A1AB9815F000D9A01 /* ConstantHandler.m */,
 			);

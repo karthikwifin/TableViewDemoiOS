@@ -1,5 +1,5 @@
 //
-//  Constants.h
+//  ConstantHandler.h
 //  TableViewDemo
 //
 //  Created by Karthik Jaganathan on 16/03/15.
@@ -17,6 +17,6 @@ static NSString * const kTitle = @"title";
 static NSString * const kDescription = @"description";
 static NSString * const kImage = @"imageHref";
 static int  const adjustSpacing = 30;
-static int  const kImageSize = 90;
+static int  const kkImageSize = 90;
 
 #endif

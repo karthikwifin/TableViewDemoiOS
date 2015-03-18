@@ -7,7 +7,7 @@
 //
 
 #import "FeedData.h"
-#import "Constants.h"
+#import "ConstantHandler.h"
 
 @implementation FeedData
 

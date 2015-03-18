@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "FactsCell.h"
-#import "Constants.h"
+#import "ConstantHandler.h"
 #import "JsonFileDownload.h"
 #import "ImageDownloader.h"
 

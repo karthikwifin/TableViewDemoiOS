@@ -7,7 +7,7 @@
 //
 
 #import "ImageDownloader.h"
-#import "Constants.h"
+#import "ConstantHandler.h"
 
 @implementation ImageDownloader
 
@@ -18,7 +18,7 @@
         url = [[NSBundle mainBundle] URLForResource:@"imagenotfound_big" withExtension:@"png"];
     }
     __block NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
+    request.timeoutInterval = 5.0;
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         UIImage *image = [ UIImage imageNamed:@"imagenotfound_big.png"];
@@ -29,7 +29,7 @@
             if (receivedImage) {
                 if (receivedImage.size.width != kImageSize || receivedImage.size.height != kImageSize)
                 {
-                    NSData *reducedData = [ ImageDownloader reduceImageSize:receivedImage];
+                    NSData *reducedData = [ ImageDownloader reducekImageSize:receivedImage];
                     completionBlock(YES,reducedData); //Block return reduced image size
                 }
                 else{
@@ -37,18 +37,18 @@
                 }
             }
             else{
-                NSData *reducedData = [ ImageDownloader reduceImageSize:image];
+                NSData *reducedData = [ ImageDownloader reducekImageSize:image];
                 completionBlock(YES, reducedData); //Block return with local image
             }
         }
         else {
-            NSData *reducedData = [ ImageDownloader reduceImageSize: errorImage];
+            NSData *reducedData = [ ImageDownloader reducekImageSize: errorImage];
             completionBlock(YES, reducedData); //Block return with local image
         }
     }];
 }
 
-+ (NSData*) reduceImageSize : (UIImage*) image
++ (NSData*) reducekImageSize : (UIImage*) image
 {
     //Image resizing with specified width and height
     CGSize itemSize = CGSizeMake(kImageSize, kImageSize);

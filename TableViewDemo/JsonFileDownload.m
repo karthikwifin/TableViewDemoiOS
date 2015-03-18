@@ -7,7 +7,7 @@
 //
 
 #import "JsonFileDownload.h"
-#import "Constants.h"
+#import "ConstantHandler.h"
 #import "FeedData.h"
 
 @implementation JsonFileDownload

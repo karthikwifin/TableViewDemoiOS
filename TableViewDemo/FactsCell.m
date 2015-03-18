@@ -7,7 +7,7 @@
 //
 
 #import "FactsCell.h"
-#import "Constants.h"
+#import "ConstantHandler.h"
 #import "GradientView.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -141,8 +141,8 @@
     if (!_gradientView)
         self.gradientView = [[GradientView alloc] initWithFrame:self.contentView.bounds];
     self.gradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.gradientView.layer setStartPoint:CGPointMake(0.0, 0.5)];
-    [self.gradientView.layer setEndPoint:CGPointMake(1.0, 0.5)];
+    //[self.gradientView.layer setStartPoint:CGPointMake(0.0, 0.5)];
+    //[self.gradientView.layer setEndPoint:CGPointMake(1.0, 0.5)]; // Transform gradient layer
     self.gradientView.layer.colors = @[ (__bridge id)[UIColor blackColor].CGColor,(__bridge id)[UIColor blueColor].CGColor ];
     [self.contentView addSubview:self.gradientView];
     
